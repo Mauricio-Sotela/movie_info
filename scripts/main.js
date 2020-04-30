@@ -15,11 +15,20 @@ for (let i = 0; i < list.length; i++) {
   });
 
   list[i].addEventListener("mouseover", () => {
-    list[i].style.backgroundColor = "blue";
+    if(list[i].style.backgroundColor !== "red"){
+        list[i].style.backgroundColor = "blue"; 
+     }else{
+         backgroundColor='red'
+     }
   });
 
   list[i].addEventListener("mouseout", () => {
-    list[i].style.backgroundColor = "#abb3b4";
+      if(list[i].style.backgroundColor !== "red"){
+         list[i].style.backgroundColor = "#abb3b4"; 
+      }else{
+          backgroundColor='red'
+      }
+    
   });
 }
 
