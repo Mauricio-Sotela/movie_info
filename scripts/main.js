@@ -8,6 +8,10 @@ text = document.querySelector("p");
 
 for (let i = 0; i < list.length; i++) {
   list[i].addEventListener("click", () => {
+      for (let j = 0; j < list.length; j++) {
+        list[j].style.backgroundColor = "#abb3b4"; 
+          
+      }
     list[i].style.backgroundColor = "red";
     movie.src = `./img/movie${[i + 1]}.jpg`;
     title.innerHTML=list[i].innerHTML;
@@ -32,4 +36,3 @@ for (let i = 0; i < list.length; i++) {
   });
 }
 
-console.log(document.body.childNodes);
