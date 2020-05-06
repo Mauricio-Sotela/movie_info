@@ -9,7 +9,7 @@ body{
 .main{
     max-width: 1200px;
     width: 90%;
-    height: 100vh;
+    height: 60vh;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -49,8 +49,8 @@ body{
 
             img{
                 margin: 2rem 10rem;
-                width: 40%;
-                //height: 100%;
+                width: 50%;
+                max-height: 90%;
             }
         }
         p{
