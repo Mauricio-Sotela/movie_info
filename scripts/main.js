@@ -8,14 +8,13 @@ let title = document.querySelector("h1");
 let movie = document.querySelector("img");
 let text = document.querySelector("p");
 
-
-
 for (let i = 0; i < list.length; i++) {
   list[i].addEventListener("click", () => {
     for (let j = 0; j < list.length; j++) {
       list[j].style.backgroundColor = "#abb3b4";
     }
     list[i].style.backgroundColor = "red";
+
     movie.src = dat[i]["image"];
     title.innerHTML = dat[i]["title"];
     text.innerHTML = dat[i]["description"];
@@ -41,9 +40,9 @@ let result = document.querySelector(".result");
 let movies = document.querySelector("#movie");
 let titles = "";
 
-movies.addEventListener("blur",movien );
+movies.addEventListener("blur", movien);
 movies.addEventListener("keypress", enter);
-window.addEventListener("load",movien );
+window.addEventListener("load", movien);
 
 function enter(e) {
   if (e.key == "Enter") {
@@ -54,7 +53,7 @@ function enter(e) {
 function movien() {
   let m = movies.value;
   if (m == "") {
-    titles = Math.ceil(Math.random()*10);
+    titles = Math.ceil(Math.random() * 10);
   } else {
     titles = m;
   }
@@ -65,7 +64,8 @@ function movien() {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      let index=Math.ceil(Math.random()*data["results"].length-1);
+      let index = Math.ceil(Math.random() * data["results"].length - 1);
+
       movie.src = `https://image.tmdb.org/t/p/original/${data["results"][index]["poster_path"]}`;
       title.innerHTML = data["results"][index]["title"];
       text.innerHTML = data["results"][index]["overview"];
@@ -73,6 +73,9 @@ function movien() {
       result.innerHTML = "";
       for (let i = 0; i < data["results"].length; i++) {
         result.innerHTML += `<img src="https://image.tmdb.org/t/p/original/${data["results"][i]["poster_path"]}" width="20%">`;
+        if (data["results"][i]["poster_path"] == null) {
+          result.innerHTML += `<img src="./img/not_found.webp" width="20%">`;
+        }
       }
       console.log(titles);
     });
